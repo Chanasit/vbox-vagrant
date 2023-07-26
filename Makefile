@@ -6,7 +6,7 @@ install: ## provision vm
 tunnel-01: ## tunel vm node01
 	vagrant ssh node01
 
-tunnel-02: ## tunel vm node01
+tunnel-02: ## tunel vm node02
 	vagrant ssh node02
 
 uninstall: ## destroy vm
