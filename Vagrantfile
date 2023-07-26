@@ -16,9 +16,9 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cpuexecutioncap", "30"]
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
-    # node01.vm.provision "shell", inline: <<-SHELL
-    #   yes | sudo pacman -Sy git fakeroot make htop fzf ripgrep go
-    # SHELL
+    node01.vm.provision "shell", inline: <<-SHELL
+      yes | sudo pacman -Sy git fakeroot make htop fzf ripgrep go
+    SHELL
   end
 
   # arch node 02
@@ -35,9 +35,9 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cpuexecutioncap", "80"]
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
-    # node01.vm.provision "shell", inline: <<-SHELL
-    #   yes | sudo pacman -Sy git docker docker-compose
-    #   sudo systemctl enable docker.service --now
-    # SHELL
+    node02.vm.provision "shell", inline: <<-SHELL
+      yes | sudo pacman -Sy git docker docker-compose
+      sudo systemctl enable docker.service --now
+    SHELL
   end
 end
