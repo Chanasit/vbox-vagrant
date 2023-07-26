@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 Vagrant.configure("2") do |config|
 
-  arch node 01
+  # arch node 01
   config.vm.define "node01" do |node01|
     node01.vm.box = "generic/arch"
     node01.vm.box_version = "4.2.16"
