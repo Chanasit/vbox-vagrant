@@ -11,8 +11,8 @@ vagrant up
 
 ### Secure Shell
 ```
-vagrant ssh node-1
-vagrant ssh node-2
+vagrant ssh node01
+vagrant ssh node02
 ```
 
 ### Cleanup
