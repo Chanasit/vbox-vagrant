@@ -6,16 +6,21 @@
 
 ### Provisioning
 ```
-vagrant up
+make install
 ```
 
 ### Secure Shell
 ```
-vagrant ssh node01
-vagrant ssh node02
+make tunnel-01
+make tunnel-02
 ```
 
 ### Cleanup
 ```
-vagrant destroy
+make uninstall
+```
+
+### Help Command
+```
+make help
 ```
