@@ -9,16 +9,16 @@ Vagrant.configure("2") do |config|
     node01.vm.hostname = 'node01'
     node01.vm.network :private_network, ip: "192.168.56.101"
     node01.vm.provider :virtualbox do |v|
+      v.name = "node01"
+      v.cpus = 1
+      v.memory = 1024
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--name", "node01"]
+      v.customize ["modifyvm", :id, "--cpuexecutioncap", "30"]
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
-    # node01.vm.provision "shell", inline: <<-SHELL
-    #   yes | sudo pacman -Sy git docker docker-compose
-    #   sudo systemctl enable docker.service --now
-    # SHELL
+    node01.vm.provision "shell", inline: <<-SHELL
+      yes | sudo pacman -Sy git fakeroot make htop fzf ripgrep go
+    SHELL
   end
 
   # arch node 02
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
       v.cpus = 1
       v.memory = 1024
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--cpuexecutioncap", "60"]
+      v.customize ["modifyvm", :id, "--cpuexecutioncap", "80"]
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
     # node01.vm.provision "shell", inline: <<-SHELL
